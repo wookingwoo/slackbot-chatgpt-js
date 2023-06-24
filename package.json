@@ -1,0 +1,27 @@
+{
+  "name": "chatgpt-slackbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cloudtype-examples/chatgpt-slackbot-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cloudtype-examples/chatgpt-slackbot-js/issues"
+  },
+  "homepage": "https://github.com/cloudtype-examples/chatgpt-slackbot-js#readme",
+  "dependencies": {
+    "@slack/bolt": "^3.13.0",
+    "dotenv": "^16.0.3",
+    "openai": "^3.2.1"
+  },
+  "type": "module"
+}
