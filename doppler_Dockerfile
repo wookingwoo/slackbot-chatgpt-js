@@ -1,0 +1,26 @@
+# Use an official Node.js runtime as the base image
+FROM node:18-alpine
+
+# Set the working directory in the container
+RUN mkdir -p /slackbot_chatgpt_js
+WORKDIR /slackbot_chatgpt_js
+
+# Install Doppler CLI
+RUN wget -q -t3 'https://packages.doppler.com/public/cli/rsa.8004D9FF50437357.key' -O /etc/apk/keys/cli@doppler-8004D9FF50437357.rsa.pub && echo 'https://packages.doppler.com/public/cli/alpine/any-version/main' | tee -a /etc/apk/repositories && apk add doppler
+
+# Copy the package.json and package-lock.json files to the working directory
+COPY package*.json ./
+
+# Install the application dependencies
+RUN npm install
+
+# Copy the application code to the working directory
+COPY . .
+
+# Expose the port on which your application will run
+EXPOSE 3000
+
+# Define the command to start your application
+
+ENTRYPOINT ["doppler", "run", "--"]
+CMD [ "node", "app.js" ]
